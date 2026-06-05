@@ -1,0 +1,47 @@
+name: Deploy Executive Dashboard
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun Runtime
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install Project Dependencies
+        run: bun install
+
+      - name: Compile TanStack App
+        run: bun run build
+
+      - name: Setup GitHub Pages Configuration
+        uses: actions/configure-pages@v4
+
+      - name: Package Compiled Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Targets the compiled browser client output folder
+          path: '.output/public'
+
+      - name: Deploy to Live Web
+        id: deployment
+        uses: actions/deploy-pages@v4
