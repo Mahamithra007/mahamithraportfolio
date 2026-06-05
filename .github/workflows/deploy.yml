@@ -39,7 +39,6 @@ jobs:
           export TSC_COMPILE_ON_ERROR=true
           export CI=false
           
-          # Force Vite and TanStack Router to bundle using your repository path directly
           export VITE_BASE_URL=/mahamithraportfolio/
           export ROUTER_BASE_URL=/mahamithraportfolio/
           
@@ -51,7 +50,8 @@ jobs:
       - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.output/public'
+          # Points to the exact folder where the build succeeded
+          path: 'dist/client'
 
       - name: Deploy to Live Web
         id: deployment
