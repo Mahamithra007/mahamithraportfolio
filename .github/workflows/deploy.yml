@@ -38,6 +38,11 @@ jobs:
           export PRESET=github-pages
           export TSC_COMPILE_ON_ERROR=true
           export CI=false
+          
+          # Force Vite and TanStack Router to bundle using your repository path directly
+          export VITE_BASE_URL=/mahamithraportfolio/
+          export ROUTER_BASE_URL=/mahamithraportfolio/
+          
           npm run build
 
       - name: Setup GitHub Pages Configuration
@@ -46,7 +51,6 @@ jobs:
       - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Lovable's core compiler drops the static assets here natively
           path: '.output/public'
 
       - name: Deploy to Live Web
