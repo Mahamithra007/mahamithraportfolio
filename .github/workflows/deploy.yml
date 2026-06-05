@@ -42,8 +42,7 @@ jobs:
       - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Captures the clean static browser assets folder
-          path: 'dist'
+          path: '.output/public'
 
       - name: Deploy to Live Web
         id: deployment
