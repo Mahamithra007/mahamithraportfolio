@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
 
+# Injects the environment variable to clear the Node.js 20 deprecation warning
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 permissions:
   contents: read
   pages: write
@@ -25,7 +29,7 @@ jobs:
       - name: Setup Node.js Runtime
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install Project Dependencies
         run: npm install --legacy-peer-deps
@@ -43,8 +47,7 @@ jobs:
       - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # The github-pages preset forces the static files into 'dist'
-          path: 'dist'
+          path: 'dist/client'
 
       - name: Deploy to Live Web
         id: deployment
