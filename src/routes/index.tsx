@@ -1,29 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Sidebar } from "@/components/portfolio/Sidebar";
+import { MainContent } from "@/components/portfolio/MainContent";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Mahamithra SR — Global Operations Specialist | Lean Six Sigma Black Belt" },
+      {
+        name: "description",
+        content:
+          "Executive portfolio of Mahamithra SR — Operations leader and Lean Six Sigma Black Belt with 8+ years scaling digital transformation, financial governance, and global program delivery.",
+      },
+      { property: "og:title", content: "Mahamithra SR — Global Operations Specialist" },
+      {
+        property: "og:description",
+        content:
+          "Operations leader and Lean Six Sigma Black Belt specializing in digital transformation, financial governance, and international program management.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Sidebar />
+      <MainContent />
     </div>
   );
 }
