@@ -2,7 +2,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
-    // Left clean to allow the build script to handle the routing paths dynamically
+    // Left completely clean. Routing paths are injected safely via deploy.yml
   },
   tanstackStart: {
     server: { 
