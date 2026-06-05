@@ -40,27 +40,14 @@ jobs:
           export CI=false
           npm run build
 
-      - name: Flatten Build Directory Layout
-        run: |
-          # Create a clean, flat staging area for GitHub Pages
-          mkdir -p final_upload
-          
-          # Copy all compiled client files into the staging directory
-          cp -r dist/client/* final_upload/
-          
-          # If TanStack nested the files inside a subfolder, pull them to the root
-          if [ -d "final_upload/mahamithraportfolio" ]; then
-            cp -r final_upload/mahamithraportfolio/* final_upload/
-          fi
-
       - name: Setup GitHub Pages Configuration
         uses: actions/configure-pages@v4
 
       - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Deploy from our verified flat staging directory
-          path: 'final_upload'
+          # Targets the fresh client assets folder built by Vite
+          path: 'dist/client'
 
       - name: Deploy to Live Web
         id: deployment
