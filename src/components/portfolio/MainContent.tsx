@@ -102,28 +102,48 @@ export function MainContent() {
           {/* Engineered Solutions */}
           <Section id="engineered" eyebrow="04 — Engineered Solutions" title="Product development & custom automation architecture.">
             <div className="grid gap-5">
-              <Card>
-                <div className="flex items-start justify-between gap-4 mb-5">
-                  <div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent mb-2">Custom Application</div>
-                    <h3 className="text-xl font-semibold tracking-tight">Shelved</h3>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent pulse-dot" />
-                    Active UAT
-                  </span>
+              <Card className="flex flex-col gap-6">
+                <div className="flex flex-col gap-1">
+                  <h3 className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">Product Profile</h3>
+                  <h4 className="text-xl font-semibold tracking-tight">Shelved</h4>
                 </div>
-                <dl className="grid gap-4 text-sm">
-                  <SolutionRow label="Overview">
-                    A standalone application designed to solve complex organization and tracking workflows end-to-end.
-                  </SolutionRow>
-                  <SolutionRow label="Execution">
-                    Brought from architecture blueprinting through full development cycles; currently managing live user acceptance testing and optimization.
-                  </SolutionRow>
-                  <SolutionRow label="Impact">
-                    Demonstrates full-lifecycle product ownership and hands-on application design capability.
-                  </SolutionRow>
-                </dl>
+
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="font-medium text-foreground/70">Project Type:</span>
+                    <span className="text-foreground/90">Custom Application Development</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="font-medium text-foreground/70">Current Status:</span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.15em] text-emerald-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-dot" />
+                      Active UAT Testing
+                    </span>
+                  </div>
+                </div>
+
+                <hr className="border-border" />
+
+                <div className="flex flex-col gap-5">
+                  <div>
+                    <h5 className="text-sm font-semibold text-foreground/90 mb-2">The Overview</h5>
+                    <p className="text-sm leading-relaxed text-foreground/80">
+                      Designed and developed a standalone application project from scratch, specifically engineered to streamline complex organization frameworks and end-to-end tracking workflows.
+                    </p>
+                  </div>
+                  <div>
+                    <h5 className="text-sm font-semibold text-foreground/90 mb-2">The Execution</h5>
+                    <p className="text-sm leading-relaxed text-foreground/80">
+                      Brought the product systematically from initial architecture blueprinting through full development cycles. Currently managing live user acceptance testing (UAT), bug tracking, and optimization stages.
+                    </p>
+                  </div>
+                  <div>
+                    <h5 className="text-sm font-semibold text-foreground/90 mb-2">The Strategic Impact</h5>
+                    <p className="text-sm leading-relaxed text-foreground/80">
+                      Demonstrates full-lifecycle product ownership, hands-on application design architecture, and cross-functional technical capabilities.
+                    </p>
+                  </div>
+                </div>
               </Card>
 
               <Card>
