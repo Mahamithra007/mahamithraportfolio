@@ -39,10 +39,14 @@ jobs:
           export TSC_COMPILE_ON_ERROR=true
           export CI=false
           
+          # Force Vite and TanStack Router to map to your GitHub subfolder
           export VITE_BASE_URL=/mahamithraportfolio/
           export ROUTER_BASE_URL=/mahamithraportfolio/
           
           npm run build
+          
+          # The magic file that stops GitHub Pages from deleting Vite's folders
+          touch dist/client/.nojekyll
 
       - name: Setup GitHub Pages Configuration
         uses: actions/configure-pages@v4
@@ -50,7 +54,7 @@ jobs:
       - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Points to the exact folder where the build succeeded
+          # Pointing to the exact folder where the successful build actually lands
           path: 'dist/client'
 
       - name: Deploy to Live Web
