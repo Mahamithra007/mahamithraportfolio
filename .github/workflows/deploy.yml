@@ -32,7 +32,6 @@ jobs:
 
       - name: Compile TanStack App (Production Build)
         run: |
-          # Bypasses strict CI type checks that cause arbitrary framework failures
           export TSC_COMPILE_ON_ERROR=true
           export CI=false
           npm run build
@@ -43,8 +42,8 @@ jobs:
       - name: Package Compiled Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # Captures the completed static production build folder
-          path: '.output/public'
+          # This targets the correct Vite output folder
+          path: 'dist'
 
       - name: Deploy to Live Web
         id: deployment
