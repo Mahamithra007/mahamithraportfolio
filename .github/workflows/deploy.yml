@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # This targets the correct Vite output folder
-          path: 'dist'
+          path: '.output/public'
 
       - name: Deploy to Live Web
         id: deployment
