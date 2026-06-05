@@ -30,7 +30,7 @@ jobs:
       - name: Install Project Dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Compile TanStack App (Production Build)
+      - name: Compile Static App Bundle
         run: |
           export TSC_COMPILE_ON_ERROR=true
           export CI=false
@@ -39,11 +39,11 @@ jobs:
       - name: Setup GitHub Pages Configuration
         uses: actions/configure-pages@v4
 
-      - name: Package Compiled Artifacts
+      - name: Package Static Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          # This targets the correct Vite output folder
-          path: '.output/public'
+          # Captures the clean static browser assets folder
+          path: 'dist'
 
       - name: Deploy to Live Web
         id: deployment
